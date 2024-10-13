@@ -35,8 +35,22 @@ h2 {
     padding-bottom: 0.5rem;
 }
 p {
+    margin-bottom: 1.5rem; /* Adds space between paragraphs */
+}
+
+ul {
+    margin-bottom: 1.5rem; /* Adds space after lists */
+}
+
+h2, h3 {
+    margin-top: 2rem; /* Adds space above headings */
+    margin-bottom: 1rem; /* Adds space below headings */
+}
+
+p {
     margin-bottom: 1rem;
 }
+
 @media (max-width: 600px) {
     section {
         padding: 1rem;
