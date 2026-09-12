@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — SPCC Concur Expense Automation</title>
+<style>
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    color: #1a1a1a;
+  }
+  h1 { font-size: 1.6em; margin-bottom: 0.2em; }
+  h2 { font-size: 1.15em; margin-top: 1.8em; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  .updated { color: #666; font-size: 0.9em; margin-bottom: 2em; }
+  ul { padding-left: 1.2em; }
+  code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px; font-size: 0.92em; }
+  .contact { background: #f7f7f7; border-radius: 6px; padding: 12px 16px; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="updated">SPCC Concur Expense Automation — Last updated: September 12, 2026</p>
+
+<p>
+  SPCC Concur Expense Automation ("the extension") is an internal browser extension built for
+  Pembina Pipeline Corporation employees. It is not distributed publicly and is only intended
+  for use by authorized internal users on company-managed systems. This policy explains what
+  data the extension accesses, why, and what happens to it.
+</p>
+
+<h2>What the extension does</h2>
+<p>
+  The extension automates a single internal workflow: importing the list of employees scheduled
+  to work a given shift from the company's SchedulePro system into an SAP Concur expense report
+  or an internal Microsoft Forms expense-tracking form, so users don't have to type in attendees
+  by hand.
+</p>
+
+<h2>What data it accesses</h2>
+<ul>
+  <li>
+    <strong>SAP Concur session identifier.</strong> When you're logged in to the company's SAP
+    Concur instance, the extension reads a session identifier already present on the page
+    (<code>window.cnqr.coreui.headerProps</code>). This is used only to verify, via an internal
+    Power Automate flow, that you are an authorized user and to obtain short-lived SchedulePro
+    API credentials on your behalf.
+  </li>
+  <li>
+    <strong>SchedulePro roster data.</strong> The extension calls the company's SchedulePro API
+    to retrieve employee names, employee numbers, and scheduled shifts for a date/shift you
+    select, in order to match and pre-fill attendees.
+  </li>
+  <li>
+    <strong>Form field values you've already entered.</strong> The extension reads values you
+    have entered on the Concur or Forms page (such as the date and shift type) to know what
+    roster to fetch, and writes attendee selections / email addresses back into that page.
+  </li>
+</ul>
+
+<h2>Where data goes</h2>
+<ul>
+  <li>
+    Your Concur session identifier is sent, over HTTPS, to an internal Power Automate flow
+    operated by Pembina, solely to confirm you are on the authorized user list and to issue
+    scoped, time-limited SchedulePro credentials. It is not sent anywhere else and is not used
+    for any other purpose.
+  </li>
+  <li>
+    Roster requests are sent, over HTTPS, directly to the company's SchedulePro API
+    (<code>api.scheduleproweb.com</code>) using those credentials.
+  </li>
+  <li>
+    No data is sent to the extension developer, to any analytics or advertising service, or to
+    any third party outside of Pembina's own SAP Concur, SchedulePro, and Power Automate systems.
+  </li>
+</ul>
+
+<h2>What's stored, and for how long</h2>
+<p>
+  The extension uses the browser's local extension storage (<code>chrome.storage.local</code>),
+  which stays on your own device and is not synced or transmitted elsewhere. It stores:
+</p>
+<ul>
+  <li>Your Concur session identifier and a cache of temporary SchedulePro credentials, for up to
+    1 hour, so you don't have to re-authenticate on every request.</li>
+  <li>A cache of the SchedulePro employee list, for up to 12 hours, to speed up repeated lookups.</li>
+</ul>
+<p>
+  All of this data is cleared automatically whenever the browser restarts or the extension is
+  installed/updated, and can be cleared manually at any time from the extension's popup.
+</p>
+
+<h2>What the extension does not do</h2>
+<ul>
+  <li>It does not track browsing activity outside the specific SAP Concur, Microsoft Forms, and
+    SchedulePro pages it operates on.</li>
+  <li>It does not use cookies, analytics, or advertising identifiers.</li>
+  <li>It does not sell or share data with third parties.</li>
+  <li>It does not run any code that isn't packaged in the extension itself (no remotely loaded
+    scripts).</li>
+</ul>
+
+<h2>Who this applies to</h2>
+<p>
+  This extension is built for, and restricted to, authorized Pembina Pipeline Corporation
+  employees with access to the company's internal SAP Concur, SchedulePro, and Microsoft Forms
+  systems. It is not intended for use by the general public.
+</p>
+
+<h2>Changes to this policy</h2>
+<p>
+  If how the extension handles data changes, this page will be updated and the "Last updated"
+  date above will reflect the change.
+</p>
+
+<h2>Contact</h2>
+<div class="contact">
+  Questions about this extension or this policy can be directed to the SPCC Automation Team
+  internally.
+</div>
+
+</body>
+</html>
